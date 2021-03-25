@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class BillsController extends Controller
 {
+    private const RULES = [
+        'description' => 'required|string|min:3|max:50',
+        'type'        => 'required|string|min:3|max:50',
+        'amount'      => 'required|regex:/^\d+(\.\d{1,2})?$/',
+    ];
+
     private BillRepository $repository;
 
     public function __construct(BillRepository $repository)
@@ -34,12 +40,7 @@ class BillsController extends Controller
 
     public function store(Request $request)
     {
-        $rules = [
-            'description' => 'required|string|min:3|max:50',
-            'type'        => 'required|string|min:3|max:50',
-            'amount'      => 'required|regex:/^\d+(\.\d{1,2})?$/',
-        ];
-        $request->validate($rules);
+        $request->validate(self::RULES);
 
         $this->repository->create(
             $request->description,
@@ -49,7 +50,7 @@ class BillsController extends Controller
             'filelocation'
         );
 
-        return redirect('/bills');
+        return redirect(route('index_bill'));
     }
 
     public function edit(Bill $bill)
@@ -61,12 +62,7 @@ class BillsController extends Controller
 
     public function update(Request $request, Bill $bill)
     {
-        $rules = [
-            'description' => 'required|string|min:3|max:50',
-            'type'        => 'required|string|min:3|max:50',
-            'amount'      => 'required|regex:/^\d+(\.\d{1,2})?$/',
-        ];
-        $request->validate($rules);
+        $request->validate(self::RULES);
 
         $this->repository->edit(
             $bill,
@@ -77,13 +73,13 @@ class BillsController extends Controller
             'filelocation'
         );
 
-        return redirect('/bills');
+        return redirect(route('index_bill'));
     }
 
     public function destroy(Bill $bill)
     {
         $this->repository->delete($bill);
 
-        return redirect('/bills');
+        return redirect(route('index_bill'));
     }
 }

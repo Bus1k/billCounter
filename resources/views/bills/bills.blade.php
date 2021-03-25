@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('head')
-
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script
 @endsection
 
 @section('content')
@@ -36,7 +37,10 @@
                         <td>{{ $bill->photo_name }}</td>
                         <td>{{ $bill->created_at }}</td>
                         <td>{{ $bill->updated_at }}</td>
-                        <td>DUPA</td>
+                        <td>
+                            <a href="{{ route('edit_bill', $bill->id) }}" class="btn btn-primary"><i class="far fa-edit"></i></a>
+                            <a href="{{ route('delete_bill', $bill->id) }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>
@@ -47,10 +51,11 @@
 
 
 @section('script')
+
 <script>
-    $(document).ready( function () {
-        console.log('DUPA');
-    });
+    $(document).ready(function() {
+        $('#billTable').DataTable();
+    } );
 </script>
 @endsection
 
