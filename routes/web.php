@@ -23,10 +23,10 @@ Route::middleware('auth')->group(function(){
     Route::get('/bills', [\App\Http\Controllers\BillsController::class, 'index']);
     Route::post('/bills', [\App\Http\Controllers\BillsController::class, 'store'])->name('store_bill');
     Route::get('/bills/create', [\App\Http\Controllers\BillsController::class, 'create'])->name('create_bill');
-
-
     Route::get('/bills/{bill}', [\App\Http\Controllers\BillsController::class, 'show']);
-    Route::get('/bills/{bill}/edit', [\App\Http\Controllers\BillsController::class, 'edit']);
+
+    Route::get('/bills/{bill}/edit', [\App\Http\Controllers\BillsController::class, 'edit'])->name('edit_bill');
+    Route::put('/bills/{bill}', [\App\Http\Controllers\BillsController::class, 'update'])->name('update_bill');
 
 
 

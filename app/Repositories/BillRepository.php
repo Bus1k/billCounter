@@ -35,13 +35,20 @@ class BillRepository
         ]);
     }
 
+    public function edit(Bill $bill, string $description, string $type, float $amount,  string $fileName, string $location)
+    {
+        $bill->description = $description;
+        $bill->type = $type;
+        $bill->amount = $amount;
+        $bill->photo_name = $fileName;
+        $bill->photo_location = $location;
+        $bill->save();
+    }
+
     public function delete()
     {
 
     }
 
-    public function edit()
-    {
 
-    }
 }

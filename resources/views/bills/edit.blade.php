@@ -5,11 +5,12 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Add New Bill</div>
+                    <div class="card-header">Edit Bill</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('store_bill') }}">
+                        <form method="POST" action="{{ route('update_bill', $bill->id) }}}">
                             @csrf
+                            @method('PUT')
 
                             <div class="form-group row">
                                 <label for="description"
@@ -20,7 +21,7 @@
                                            type="text"
                                            class="form-control @error('description') is-invalid @enderror"
                                            name="description"
-                                           value="{{ old('description') }}"
+                                           value="{{ $bill->description }}"
                                            required
                                            autofocus>
 
@@ -40,7 +41,7 @@
                                            type="text"
                                            class="form-control @error('type') is-invalid @enderror"
                                            name="type"
-                                           value="{{ old('type') }}"
+                                           value="{{ $bill->type }}"
                                            required>
 
                                     @error('type')
@@ -60,7 +61,7 @@
                                            step="0.01"
                                            class="form-control @error('amount') is-invalid @enderror"
                                            name="amount"
-                                           value="{{ old('amount') }}"
+                                           value="{{ $bill->amount }}"
                                            required>
 
                                     @error('amount')
