@@ -1,12 +1,16 @@
 @extends('layouts.app')
 
+@section('head')
+
+@endsection
+
 @section('content')
     <div class="container">
 
         <a href="{{ route('create_bill') }}" class="btn btn-primary">Add Bill</a>
 
         <div class="row justify-content-center">
-            <table class="table">
+            <table class="table" id="billTable">
                 <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -40,3 +44,13 @@
         </div>
     </div>
 @endsection
+
+
+@section('script')
+<script>
+    $(document).ready( function () {
+        console.log('DUPA');
+    });
+</script>
+@endsection
+
