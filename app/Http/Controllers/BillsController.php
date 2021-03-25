@@ -82,6 +82,8 @@ class BillsController extends Controller
 
     public function destroy(Bill $bill)
     {
+        $this->repository->delete($bill);
 
+        return redirect('/bills');
     }
 }

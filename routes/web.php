@@ -28,8 +28,6 @@ Route::middleware('auth')->group(function(){
     Route::get('/bills/{bill}/edit', [\App\Http\Controllers\BillsController::class, 'edit'])->name('edit_bill');
     Route::put('/bills/{bill}', [\App\Http\Controllers\BillsController::class, 'update'])->name('update_bill');
 
-
-
-    Route::delete('/bills/{bill}', [\App\Http\Controllers\BillsController::class, 'destroy']);
+    Route::get('/bills/{bill}/delete', [\App\Http\Controllers\BillsController::class, 'destroy']);
 });
 
