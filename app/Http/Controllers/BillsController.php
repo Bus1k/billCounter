@@ -43,12 +43,19 @@ class BillsController extends Controller
     {
         $request->validate(self::RULES);
 
+        $path = $filename = null;
+        if($request->file('photo'))
+        {
+            $path = $request->file('photo')->store('public/bills/' . $request->user()->id, 'local');
+            $filename = $request->file('photo')->hashName();
+        }
+
         $this->repository->create(
             $request->description,
             $request->type,
             $request->amount,
-            'filename',
-            'filelocation'
+            $filename,
+            $path
         );
 
         return redirect(route('index_bill'));

@@ -23,7 +23,7 @@ class BillRepository
         return $this->billModel->where('id', $id)->first();
     }
 
-    public function create(string $description, string $type, float $amount, string $fileName, string $location)
+    public function create(string $description, string $type, float $amount, ?string $fileName = null, ?string $location = null)
     {
         return $this->billModel->create([
             'user_id'     => Auth::id(),
