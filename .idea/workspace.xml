@@ -6,16 +6,13 @@
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BillsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BillsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/bills/bills.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/bills/bills.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/bills/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/bills/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/bills/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/bills/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" doNotAsk="true">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -190,7 +187,8 @@
       <option name="presentableId" value="Default" />
       <updated>1616601616836</updated>
       <workItem from="1616601617956" duration="12337000" />
-      <workItem from="1616672523508" duration="12664000" />
+      <workItem from="1616672523508" duration="14518000" />
+      <workItem from="1616757060435" duration="530000" />
     </task>
     <task id="LOCAL-00001" summary="add bill migration model and controller">
       <created>1616618698818</created>
@@ -227,7 +225,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616682291649</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add fontawesome, cancel button and buttons in table">
+      <created>1616689128786</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1616689128786</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -240,6 +245,7 @@
     <MESSAGE value="edit bills" />
     <MESSAGE value="remove bill" />
     <MESSAGE value="views modifications" />
-    <option name="LAST_COMMIT_MESSAGE" value="views modifications" />
+    <MESSAGE value="add fontawesome, cancel button and buttons in table" />
+    <option name="LAST_COMMIT_MESSAGE" value="add fontawesome, cancel button and buttons in table" />
   </component>
 </project>

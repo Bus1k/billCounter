@@ -39,6 +39,7 @@
                         <td>{{ $bill->updated_at }}</td>
                         <td>
                             <a href="{{ route('edit_bill', $bill->id) }}" class="btn btn-primary"><i class="far fa-edit"></i></a>
+{{--                            <a href="#" class="btn btn-info"><i class="fas fa-search"></i></a>--}}
                             <a href="{{ route('delete_bill', $bill->id) }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
                         </td>
                     </tr>

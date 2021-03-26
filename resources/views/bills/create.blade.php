@@ -8,7 +8,7 @@
                     <div class="card-header">Add New Bill</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('store_bill') }}">
+                        <form method="POST" enctype="multipart/form-data" action="{{ route('store_bill') }}">
                             @csrf
 
                             <div class="form-group row">
@@ -77,6 +77,7 @@
                                 <div class="col-md-6">
                                     <input id="photo"
                                            type="file"
+                                           accept="image/*"
                                            class="form-control @error('photo') is-invalid @enderror"
                                            name="photo">
 

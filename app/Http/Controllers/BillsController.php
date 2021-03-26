@@ -11,6 +11,7 @@ class BillsController extends Controller
         'description' => 'required|string|min:3|max:50',
         'type'        => 'required|string|min:3|max:50',
         'amount'      => 'required|regex:/^\d+(\.\d{1,2})?$/',
+        'photo'       => 'nullable|mimes:jpg,jpeg,png'
     ];
 
     private BillRepository $repository;
