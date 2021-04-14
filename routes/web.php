@@ -22,6 +22,7 @@ Route::middleware('auth')->group(function(){
 
     Route::get('/bills', [\App\Http\Controllers\BillsController::class, 'index'])->name('index_bill');
     Route::post('/bills', [\App\Http\Controllers\BillsController::class, 'store'])->name('store_bill');
+    Route::post('/bills/ajax', [\App\Http\Controllers\BillsController::class, 'ajax'])->name('ajax_bill');
     Route::get('/bills/create', [\App\Http\Controllers\BillsController::class, 'create'])->name('create_bill');
     Route::get('/bills/{bill}', [\App\Http\Controllers\BillsController::class, 'show']);
 

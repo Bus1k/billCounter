@@ -20,7 +20,6 @@ class CreateBillsTable extends Migration
             $table->string('type');
             $table->decimal('amount', 65, 2);
             $table->string('photo_name')->nullable();
-            $table->string('photo_location')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')

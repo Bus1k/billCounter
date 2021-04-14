@@ -2,7 +2,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bill;
+use App\Models\User;
 use App\Repositories\BillRepository;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class BillsController extends Controller
@@ -22,31 +24,35 @@ class BillsController extends Controller
         $this->repository = $repository;
     }
 
+
     public function index()
     {
         return view('bills.bills', [
-            'bills' => $this->repository->all()
+            'bills' => $this->repository->allByMonth(now()->month)
         ]);
     }
+
 
     public function show(Bill $bill)
     {
         return $bill;
     }
 
+
     public function create()
     {
         return view('bills.create');
     }
 
+
     public function store(Request $request)
     {
         $request->validate(self::RULES);
 
-        $path = $filename = null;
-        if($request->file('photo'))
+        $filename = null;
+        if($request->hasFile('photo'))
         {
-            $path = $request->file('photo')->store('public/bills/' . $request->user()->id, 'local');
+            $request->file('photo')->store('public/bills/', 'local');
             $filename = $request->file('photo')->hashName();
         }
 
@@ -55,11 +61,11 @@ class BillsController extends Controller
             $request->type,
             $request->amount,
             $filename,
-            $path
         );
 
         return redirect(route('index_bill'));
     }
+
 
     public function edit(Bill $bill)
     {
@@ -67,6 +73,7 @@ class BillsController extends Controller
             'bill' => $bill
         ]);
     }
+
 
     public function update(Request $request, Bill $bill)
     {
@@ -78,16 +85,61 @@ class BillsController extends Controller
             $request->type,
             $request->amount,
             'filename',
-            'filelocation'
         );
 
         return redirect(route('index_bill'));
     }
+
 
     public function destroy(Bill $bill)
     {
         $this->repository->delete($bill);
 
         return redirect(route('index_bill'));
+    }
+
+
+    public function ajax()
+    {
+        if($_POST['table_type'] === 'billTable'){
+
+            $date = Carbon::create($_POST['selected_date']);
+            $bills = $this->repository->allByMonth($date->month);
+
+            $out = [
+                'data' => []
+            ];
+
+            foreach($bills as $bill) {
+
+                $photo = null;
+                if($bill['photo_name']) {
+                    $photo = '<a target="_blank" href="'. url("storage/bills/" . $bill["photo_name"]) .'">
+                                    <button type="button" class="btn btn-success">
+                                        <i class="fas fa-file-image"></i>
+                                    </button>
+                                </a>';
+                }
+
+                $actions = '
+                    <a href="'.route('edit_bill', $bill["id"]).'" class="btn btn-primary"><i class="far fa-edit"></i></a>
+                    <a href="'.route('delete_bill', $bill["id"]).'" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                ';
+
+                $out['data'][] = [
+                    $bill['id'],
+                    User::find($bill['user_id'])->name,
+                    $bill['description'],
+                    $bill['type'],
+                    $bill['amount'],
+                    $photo,
+                    $bill['created_at']->format('Y-m-d H:i:s'),
+                    $bill['updated_at']->format('Y-m-d H:i:s'),
+                    $actions
+                ];
+            }
+
+            return response()->json($out);
+        }
     }
 }

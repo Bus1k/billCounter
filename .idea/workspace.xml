@@ -2,10 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ba77ca24-0f31-4f3e-bfb2-ba2d9f6d6b12" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BillsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BillsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Bill.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Bill.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Repositories/BillRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/BillRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_24_203330_create_bills_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_24_203330_create_bills_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/bills/bills.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/bills/bills.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,13 +189,14 @@
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="javascript.nodejs.core.library.configured.version" value="12.19.0" />
     <property name="javascript.nodejs.core.library.typings.version" value="12.19.0" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/storage" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="editing.templates" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\laragon\www\billcounter\public\storage" />
       <recent name="C:\laragon\www\billcounter" />
       <recent name="C:\laragon\www\billcounter\public" />
       <recent name="C:\laragon\www\billcounter\resources\views" />
@@ -216,7 +221,10 @@
       <updated>1616601616836</updated>
       <workItem from="1616601617956" duration="12337000" />
       <workItem from="1616672523508" duration="14518000" />
-      <workItem from="1616757060435" duration="7605000" />
+      <workItem from="1616757060435" duration="9647000" />
+      <workItem from="1617820105970" duration="3755000" />
+      <workItem from="1617993169193" duration="111000" />
+      <workItem from="1618421584903" duration="7580000" />
     </task>
     <task id="LOCAL-00001" summary="add bill migration model and controller">
       <created>1616618698818</created>
@@ -267,7 +275,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616757608171</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="save files local">
+      <created>1616765771294</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1616765771294</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -282,6 +297,7 @@
     <MESSAGE value="views modifications" />
     <MESSAGE value="add fontawesome, cancel button and buttons in table" />
     <MESSAGE value="images input" />
-    <option name="LAST_COMMIT_MESSAGE" value="images input" />
+    <MESSAGE value="save files local" />
+    <option name="LAST_COMMIT_MESSAGE" value="save files local" />
   </component>
 </project>

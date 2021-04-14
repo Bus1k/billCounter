@@ -21,7 +21,6 @@ class Bill extends Model
         'type',
         'amount',
         'photo_name',
-        'photo_location',
     ];
 
     public function user()

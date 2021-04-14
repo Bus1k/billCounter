@@ -8,7 +8,17 @@
 @section('content')
     <div class="container">
 
-        <a href="{{ route('create_bill') }}" class="btn btn-primary">Add Bill</a>
+        <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+            <div class="btn-group mr-2" role="group" aria-label="Main panel">
+                <a href="{{ route('create_bill') }}" class="btn btn-primary">Add Bill</a>
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <input type="button" name="month_select" id="month_select" value="Select" class="btn btn-success" />
+                </div>
+                <input type="month" name="bill_date" id="bill_date" class="form-control" />
+            </div>
+        </div>
 
         <div class="row justify-content-center">
             <table class="table" id="billTable">
@@ -34,12 +44,19 @@
                         <td>{{ $bill->description }}</td>
                         <td>{{ $bill->type }}</td>
                         <td>{{ $bill->amount }}</td>
-                        <td>{{ $bill->photo_name }}</td>
+                        <td>
+                            @if( $bill->photo_name )
+                                <a target="_blank" href="{{ url( 'storage/bills/' . $bill->photo_name ) }}">
+                                    <button type="button" class="btn btn-success">
+                                        <i class="fas fa-file-image"></i>
+                                    </button>
+                                </a>
+                            @endif
+                        </td>
                         <td>{{ $bill->created_at }}</td>
                         <td>{{ $bill->updated_at }}</td>
                         <td>
                             <a href="{{ route('edit_bill', $bill->id) }}" class="btn btn-primary"><i class="far fa-edit"></i></a>
-{{--                            <a href="#" class="btn btn-info"><i class="fas fa-search"></i></a>--}}
                             <a href="{{ route('delete_bill', $bill->id) }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
                         </td>
                     </tr>
@@ -56,6 +73,31 @@
 <script>
     $(document).ready(function() {
         $('#billTable').DataTable();
+
+        function fetch_data(table_type, date='')
+        {
+            $('#billTable').DataTable({
+                "ajax" : {
+                    url:"{{ route('ajax_bill') }}",
+                    type:"POST",
+                    data: {
+                        _token: "{{ csrf_token() }}",
+                        table_type:table_type,
+                        selected_date:date,
+                    }
+                },
+            });
+        }
+
+        $('#month_select').click(function(){
+            const date = $('#bill_date').val();
+
+            if(date != ''){
+                $('#billTable').DataTable().destroy();
+                fetch_data('billTable', date);
+            }
+        });
+
     } );
 </script>
 @endsection
