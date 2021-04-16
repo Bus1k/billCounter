@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Repositories\BillRepository;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Helpers\MonthsHelper;
 
 class BillsController extends Controller
 {
@@ -27,8 +28,23 @@ class BillsController extends Controller
 
     public function index()
     {
+        $bills = $this->repository->allByMonth(now()->month);
+
+        $currentMonthSum = 0;
+        $currentMonthQuantity = 0;
+
+        foreach($bills as $bill){
+            $currentMonthSum += (float)$bill['amount'];
+            $currentMonthQuantity++;
+        }
+
         return view('bills.bills', [
-            'bills' => $this->repository->allByMonth(now()->month)
+            'bills' => $bills,
+            'monthName' => MonthsHelper::getCurrentMonthName(now()->month),
+            'stats' => [
+                'currentMonthSum' => $currentMonthSum,
+                'currentMonthQuantity' => $currentMonthQuantity
+            ]
         ]);
     }
 
@@ -122,8 +138,8 @@ class BillsController extends Controller
                 }
 
                 $actions = '
-                    <a href="'.route('edit_bill', $bill["id"]).'" class="btn btn-primary"><i class="far fa-edit"></i></a>
-                    <a href="'.route('delete_bill', $bill["id"]).'" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                    <a href="'. route('edit_bill', $bill["id"]) .'" class="btn btn-primary"><i class="far fa-edit"></i></a>
+                    <a href="'. route('delete_bill', $bill["id"]) .'" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
                 ';
 
                 $out['data'][] = [
@@ -138,6 +154,20 @@ class BillsController extends Controller
                     $actions
                 ];
             }
+
+            $currentMonthSum = 0;
+            $currentMonthQuantity = 0;
+
+            foreach($bills as $bill){
+                $currentMonthSum += (float)$bill['amount'];
+                $currentMonthQuantity++;
+            }
+
+            $out['additional'] = [
+                'monthName' => MonthsHelper::getCurrentMonthName($date->month),
+                'currentMonthSum' => $currentMonthSum,
+                'currentMonthQuantity' => $currentMonthQuantity
+            ];
 
             return response()->json($out);
         }

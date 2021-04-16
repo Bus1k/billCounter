@@ -7,7 +7,24 @@
 
 @section('content')
     <div class="container">
-
+        <div class="row row-cols-1 row-cols-md-2 g-4 mb-5">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Liczba rachunków dodanych w miesiącu <span id="monthName">{{ $monthName }}</span></h5>
+                        <h2 id="currentMonthQuantity" class="card-text">{{ $stats['currentMonthQuantity'] }}</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Suma wydanych pieniędzy</h5>
+                        <h2 id="currentMonthSum" class="card-text">{{ $stats['currentMonthSum'] }}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
             <div class="btn-group mr-2" role="group" aria-label="Main panel">
                 <a href="{{ route('create_bill') }}" class="btn btn-primary">Add Bill</a>
@@ -57,7 +74,7 @@
                         <td>{{ $bill->updated_at }}</td>
                         <td>
                             <a href="{{ route('edit_bill', $bill->id) }}" class="btn btn-primary"><i class="far fa-edit"></i></a>
-                            <a href="{{ route('delete_bill', $bill->id) }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                            <a id="delete_bill" href="{{ route('delete_bill', $bill->id) }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
                         </td>
                     </tr>
                 @endforeach
@@ -76,17 +93,29 @@
 
         function fetch_data(table_type, date='')
         {
-            $('#billTable').DataTable({
-                "ajax" : {
-                    url:"{{ route('ajax_bill') }}",
-                    type:"POST",
-                    data: {
-                        _token: "{{ csrf_token() }}",
-                        table_type:table_type,
-                        selected_date:date,
-                    }
+            $.ajax({
+                url: "{{ route('ajax_bill') }}",
+                type:"POST",
+                dataType: "JSON",
+                data: {
+                    _token: "{{ csrf_token() }}",
+                    table_type:table_type,
+                    selected_date:date,
                 },
+            }).done(function(response) {
+                $('#billTable').DataTable({
+                    data: response.data
+                });
+                changeStats(response.additional);
             });
+        }
+
+        function changeStats(additional){
+            $('#monthName').text(additional.monthName);
+            $('#currentMonthQuantity').text(additional.currentMonthQuantity);
+            $('#currentMonthSum').text(additional.currentMonthSum);
+
+            console.log(additional);
         }
 
         $('#month_select').click(function(){
@@ -97,7 +126,6 @@
                 fetch_data('billTable', date);
             }
         });
-
     } );
 </script>
 @endsection
