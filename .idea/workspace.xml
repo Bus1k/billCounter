@@ -2,17 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ba77ca24-0f31-4f3e-bfb2-ba2d9f6d6b12" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Models/Category.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_03_18_105905_create_categories_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BillsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BillsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Bill.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Bill.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Category.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Repositories/BillRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/BillRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_24_203330_create_bills_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_24_203330_create_bills_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/bills/bills.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/bills/bills.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/bills/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/bills/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/bills/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/bills/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/navbar.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,7 +226,7 @@
       <workItem from="1618596703360" duration="10137000" />
       <workItem from="1618640449782" duration="2421000" />
       <workItem from="1618742756525" duration="1157000" />
-      <workItem from="1618744043589" duration="5805000" />
+      <workItem from="1618744043589" duration="7831000" />
     </task>
     <task id="LOCAL-00001" summary="add bill migration model and controller">
       <created>1616618698818</created>
@@ -296,7 +291,21 @@
       <option name="project" value="LOCAL" />
       <updated>1618429475838</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="add categories migration and change migrations order">
+      <created>1618749933299</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1618749933299</updated>
+    </task>
+    <task id="LOCAL-00011" summary="adapt models and views for categories select">
+      <created>1618749979808</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1618749979808</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -313,6 +322,8 @@
     <MESSAGE value="images input" />
     <MESSAGE value="save files local" />
     <MESSAGE value="remove photo location,&#10;add date selector on bills view" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove photo location,&#10;add date selector on bills view" />
+    <MESSAGE value="add categories migration and change migrations order" />
+    <MESSAGE value="adapt models and views for categories select" />
+    <option name="LAST_COMMIT_MESSAGE" value="adapt models and views for categories select" />
   </component>
 </project>

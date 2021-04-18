@@ -43,8 +43,8 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">User</th>
-                    <th scope="col">Description</th>
                     <th scope="col">Category</th>
+                    <th scope="col">Description</th>
                     <th scope="col">Amount</th>
                     <th scope="col">Photo</th>
                     <th scope="col">Created At</th>
@@ -58,8 +58,8 @@
                     <tr>
                         <th scope="row">{{ $bill->id }}</th>
                         <td>{{ $bill->user->name }}</td>
-                        <td>{{ $bill->description }}</td>
                         <td>{{ $bill->category->name }}</td>
+                        <td>{{ $bill->description }}</td>
                         <td>{{ $bill->amount }}</td>
                         <td>
                             @if( $bill->photo_name )

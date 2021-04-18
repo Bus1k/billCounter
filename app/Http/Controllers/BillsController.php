@@ -147,9 +147,9 @@ class BillsController extends Controller
 
                 $out['data'][] = [
                     $bill['id'],
-                    User::find($bill['user_id'])->name,
+                    $bill->user->name,
+                    $bill->category->name,
                     $bill['description'],
-                    $bill['category'],
                     $bill['amount'],
                     $photo,
                     $bill['created_at']->format('Y-m-d H:i:s'),

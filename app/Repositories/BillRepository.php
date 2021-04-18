@@ -28,22 +28,22 @@ class BillRepository
         return $this->billModel->where('id', $id)->first();
     }
 
-    public function create(string $description, string $category, float $amount, ?string $fileName = null)
+    public function create(string $description, int $categoryId, float $amount, ?string $fileName = null)
     {
         return $this->billModel->create([
             'user_id'     => Auth::id(),
             'description' => $description,
-            'category'    => $category,
+            'category_id' => $categoryId,
             'amount'      => $amount,
             'photo_name'  => $fileName,
         ]);
     }
 
-    public function edit(Bill $bill, string $description, string $category, float $amount,  ?string $fileName)
+    public function edit(Bill $bill, string $description, int $categoryId, float $amount,  ?string $fileName)
     {
         $bill->update([
             'description' => $description,
-            'category'        => $category,
+            'category_id' => $categoryId,
             'amount'      => $amount,
             'photo_name'  => $fileName,
         ]);

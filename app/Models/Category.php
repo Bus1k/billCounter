@@ -22,6 +22,6 @@ class Category extends Model
 
     public function category()
     {
-        return $this->belongsTo(Bill::class);
+        return $this->belongsTo(Bill::class, 'category_id', 'id');
     }
 }

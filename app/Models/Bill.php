@@ -30,6 +30,6 @@ class Bill extends Model
 
     public function category()
     {
-        return $this->hasOne(Category::class, 'id');
+        return $this->hasOne(Category::class, 'id', 'category_id');
     }
 }
