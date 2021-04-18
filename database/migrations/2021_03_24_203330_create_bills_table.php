@@ -16,8 +16,8 @@ class CreateBillsTable extends Migration
         Schema::create('bills', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('category_id')->nullable();
             $table->string('description');
-            $table->string('type');
             $table->decimal('amount', 65, 2);
             $table->string('photo_name')->nullable();
             $table->timestamps();
@@ -26,6 +26,11 @@ class CreateBillsTable extends Migration
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade');
+
+            $table->foreign('category_id')
+                ->references('id')
+                ->on('categories')
+                ->onDelete('set null');
         });
     }
 
