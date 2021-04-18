@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="ba77ca24-0f31-4f3e-bfb2-ba2d9f6d6b12" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BillsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BillsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/bills/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/bills/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -222,7 +224,7 @@
       <workItem from="1618596703360" duration="10137000" />
       <workItem from="1618640449782" duration="2421000" />
       <workItem from="1618742756525" duration="1157000" />
-      <workItem from="1618744043589" duration="9488000" />
+      <workItem from="1618744043589" duration="15556000" />
     </task>
     <task id="LOCAL-00001" summary="add bill migration model and controller">
       <created>1616618698818</created>
@@ -308,7 +310,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618752032410</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="display photo on edit view and add new button for reupload photo">
+      <created>1618753702534</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1618753702534</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -328,6 +337,18 @@
     <MESSAGE value="add categories migration and change migrations order" />
     <MESSAGE value="adapt models and views for categories select" />
     <MESSAGE value="foregin keys fix in models,&#10;adapt ajax returned data for category" />
-    <option name="LAST_COMMIT_MESSAGE" value="foregin keys fix in models,&#10;adapt ajax returned data for category" />
+    <MESSAGE value="display photo on edit view and add new button for reupload photo" />
+    <option name="LAST_COMMIT_MESSAGE" value="display photo on edit view and add new button for reupload photo" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/Http/Controllers/BillsController.php</url>
+          <line>93</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

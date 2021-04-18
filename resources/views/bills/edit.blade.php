@@ -8,9 +8,8 @@
                     <div class="card-header">Edit Bill</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('update_bill', $bill->id) }}}">
+                        <form method="POST" enctype="multipart/form-data" action="{{ route('update_bill', $bill->id) }}}">
                             @csrf
-                            @method('PUT')
 
                             <div class="form-group row">
                                 <label for="description"
@@ -81,7 +80,7 @@
                                         </a>
                                     @endif
                                     <button id="upload_photo" class="btn btn-primary"><i class="fas fa-file-upload"></i></button>
-
+                                    <input id="photo" type="file" class="form-control @error('photo') is-invalid @enderror" name="photo" hidden>
                                     @error('photo')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -109,7 +108,7 @@
         $(document).ready(function() {
             $('#upload_photo').click(function(){
                 $('#view_photo, #upload_photo').remove();
-                $('#div_photo').append('<input id="photo" type="file" class="form-control @error('photo') is-invalid @enderror" name="photo">');
+                $('#photo').removeAttr("hidden");
             });
         });
     </script>

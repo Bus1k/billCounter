@@ -98,12 +98,19 @@ class BillsController extends Controller
     {
         $request->validate(self::RULES);
 
+        $filename = $bill['photo_name'];
+        if($request->hasFile('photo'))
+        {
+            $request->file('photo')->store('public/bills/', 'local');
+            $filename = $request->file('photo')->hashName();
+        }
+
         $this->repository->edit(
             $bill,
             $request->description,
             $request->category_id,
             $request->amount,
-            'filename',
+            $filename
         );
 
         return redirect(route('index_bill'));
@@ -113,7 +120,6 @@ class BillsController extends Controller
     public function destroy(Bill $bill)
     {
         $this->repository->delete($bill);
-
         return redirect(route('index_bill'));
     }
 
