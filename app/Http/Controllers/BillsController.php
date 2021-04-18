@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bill;
+use App\Models\Category;
 use App\Models\User;
 use App\Repositories\BillRepository;
 use Carbon\Carbon;
@@ -12,7 +13,6 @@ class BillsController extends Controller
 {
     private const RULES = [
         'description' => 'required|string|min:3|max:50',
-        'type'        => 'required|string|min:3|max:50',
         'amount'      => 'required|regex:/^\d+(\.\d{1,2})?$/',
         'photo'       => 'nullable|mimes:jpg,jpeg,png'
     ];
@@ -57,7 +57,9 @@ class BillsController extends Controller
 
     public function create()
     {
-        return view('bills.create');
+        return view('bills.create', [
+            'categories' => Category::all()
+        ]);
     }
 
 
@@ -74,7 +76,7 @@ class BillsController extends Controller
 
         $this->repository->create(
             $request->description,
-            $request->type,
+            $request->category_id,
             $request->amount,
             $filename,
         );
@@ -86,7 +88,8 @@ class BillsController extends Controller
     public function edit(Bill $bill)
     {
         return view('bills.edit', [
-            'bill' => $bill
+            'bill' => $bill,
+            'categories' => Category::all()
         ]);
     }
 
@@ -98,7 +101,7 @@ class BillsController extends Controller
         $this->repository->edit(
             $bill,
             $request->description,
-            $request->type,
+            $request->category_id,
             $request->amount,
             'filename',
         );
@@ -146,7 +149,7 @@ class BillsController extends Controller
                     $bill['id'],
                     User::find($bill['user_id'])->name,
                     $bill['description'],
-                    $bill['type'],
+                    $bill['category'],
                     $bill['amount'],
                     $photo,
                     $bill['created_at']->format('Y-m-d H:i:s'),

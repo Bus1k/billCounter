@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Bill extends Model
+class Category extends Model
 {
     use HasFactory;
 
@@ -16,20 +16,12 @@ class Bill extends Model
     ];
 
     protected $fillable = [
-        'user_id',
-        'description',
-        'category_id',
-        'amount',
-        'photo_name',
+        'name',
+        'description'
     ];
-
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
 
     public function category()
     {
-        return $this->hasOne(Category::class, 'id');
+        return $this->belongsTo(Bill::class);
     }
 }

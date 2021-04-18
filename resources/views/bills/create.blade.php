@@ -33,21 +33,18 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="type" class="col-md-4 col-form-label text-md-right">Type</label>
+                                <label for="category" class="col-md-4 col-form-label text-md-right">Category</label>
 
                                 <div class="col-md-6">
-                                    <input id="type"
+                                    <select id="category_id"
                                            type="text"
-                                           class="form-control @error('type') is-invalid @enderror"
-                                           name="type"
-                                           value="{{ old('type') }}"
+                                           class="form-control"
+                                           name="category_id"
                                            required>
-
-                                    @error('type')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
+                                        @foreach ($categories as $category)
+                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
 
