@@ -72,11 +72,15 @@
                             <div class="form-group row">
                                 <label for="photo" class="col-md-4 col-form-label text-md-right">Photo</label>
 
-                                <div class="col-md-6">
-                                    <input id="photo"
-                                           type="file"
-                                           class="form-control @error('photo') is-invalid @enderror"
-                                           name="photo">
+                                <div class="col-md-6" id="div_photo">
+                                    @if( $bill->photo_name !== null)
+                                        <a id="view_photo" target="_blank" href="{{ url( 'storage/bills/' . $bill->photo_name ) }}">
+                                            <button type="button" class="btn btn-success">
+                                                <i class="fas fa-file-image"></i>
+                                            </button>
+                                        </a>
+                                    @endif
+                                    <button id="upload_photo" class="btn btn-primary"><i class="fas fa-file-upload"></i></button>
 
                                     @error('photo')
                                     <span class="invalid-feedback" role="alert">
@@ -98,4 +102,15 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('script')
+    <script>
+        $(document).ready(function() {
+            $('#upload_photo').click(function(){
+                $('#view_photo, #upload_photo').remove();
+                $('#div_photo').append('<input id="photo" type="file" class="form-control @error('photo') is-invalid @enderror" name="photo">');
+            });
+        });
+    </script>
 @endsection
