@@ -17,7 +17,7 @@ class CreateSettingsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('name');
-            $table->string('value');
+            $table->text('value');
             $table->timestamps();
         });
     }

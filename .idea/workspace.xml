@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ba77ca24-0f31-4f3e-bfb2-ba2d9f6d6b12" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/partials/alert.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BillsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BillsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/bills/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/bills/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SettingsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SettingsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/SettingsRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/SettingsRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_20_175924_create_settings_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_04_20_175924_create_settings_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/bills/bills.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/bills/bills.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/navbar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/settings/settings.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/settings/settings.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,6 +29,14 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="2" />
@@ -187,7 +201,7 @@
     <property name="javascript.nodejs.core.library.typings.version" value="12.19.0" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/public/storage" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="editing.templates" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -224,7 +238,9 @@
       <workItem from="1618596703360" duration="10137000" />
       <workItem from="1618640449782" duration="2421000" />
       <workItem from="1618742756525" duration="1157000" />
-      <workItem from="1618744043589" duration="15556000" />
+      <workItem from="1618744043589" duration="15963000" />
+      <workItem from="1618939320021" duration="66000" />
+      <workItem from="1618939403211" duration="9813000" />
     </task>
     <task id="LOCAL-00001" summary="add bill migration model and controller">
       <created>1616618698818</created>
@@ -317,7 +333,35 @@
       <option name="project" value="LOCAL" />
       <updated>1618753702534</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="bill edit upload photo input fix">
+      <created>1618774744947</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1618774744947</updated>
+    </task>
+    <task id="LOCAL-00015" summary="add settings table migration, model, controller, repository">
+      <created>1618943212188</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1618943212188</updated>
+    </task>
+    <task id="LOCAL-00016" summary="settings blade">
+      <created>1618943237101</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1618943237101</updated>
+    </task>
+    <task id="LOCAL-00017" summary="settings route">
+      <created>1618943256294</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1618943256294</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -338,17 +382,10 @@
     <MESSAGE value="adapt models and views for categories select" />
     <MESSAGE value="foregin keys fix in models,&#10;adapt ajax returned data for category" />
     <MESSAGE value="display photo on edit view and add new button for reupload photo" />
-    <option name="LAST_COMMIT_MESSAGE" value="display photo on edit view and add new button for reupload photo" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/app/Http/Controllers/BillsController.php</url>
-          <line>93</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="bill edit upload photo input fix" />
+    <MESSAGE value="add settings table migration, model, controller, repository" />
+    <MESSAGE value="settings blade" />
+    <MESSAGE value="settings route" />
+    <option name="LAST_COMMIT_MESSAGE" value="settings route" />
   </component>
 </project>

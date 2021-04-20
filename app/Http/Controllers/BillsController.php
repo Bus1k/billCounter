@@ -3,7 +3,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Bill;
 use App\Models\Category;
-use App\Models\User;
 use App\Repositories\BillRepository;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -81,7 +80,7 @@ class BillsController extends Controller
             $filename,
         );
 
-        return redirect(route('index_bill'));
+
     }
 
 

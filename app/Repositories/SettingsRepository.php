@@ -24,7 +24,7 @@ class SettingsRepository
         return $this->settings
                     ->where('user_id', Auth::id())
                     ->where('name', $name)
-                    ->first();
+                    ->first()->value;
     }
 
     public function set(string $name, string $value)

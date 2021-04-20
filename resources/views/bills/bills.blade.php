@@ -20,7 +20,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Suma wydanych pieniędzy</h5>
-                        <h2 id="currentMonthSum" class="card-text">{{ $stats['currentMonthSum'] }}</h2>
+                        <h2 id="currentMonthSum" class="card-text">{{ $stats['currentMonthSum'] }} zł</h2>
                     </div>
                 </div>
             </div>

@@ -3,9 +3,18 @@ namespace App\Http\Controllers;
 
 
 use App\Repositories\SettingsRepository;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 
 class SettingsController extends Controller
 {
+    private const RULES = [
+        'clientId'     => 'required|string|min:10|max:150',
+        'secret'       => 'required|string|min:10|max:150',
+        'refreshToken' => 'required|string|min:10|max:150',
+        'folderId'     => 'required|string|min:10|max:150',
+    ];
+
     private SettingsRepository $settings;
 
     public function __construct(SettingsRepository $settings)
@@ -16,11 +25,31 @@ class SettingsController extends Controller
 
     public function index()
     {
-        $test = $this->settings->set('FILE_LOCATION_HWDP', 'kako');
+        $googleDrive = json_decode($this->settings->getByName('GOOGLE_DRIVE_CONFIG'), true);
 
-        ddd($test);
+        return view('settings.settings', [
+            'google_drive' => [
+                'clientId'     => $googleDrive['clientId'],
+                'refreshToken' => $googleDrive['refreshToken'],
+                'folderId'     => $googleDrive['folderId'],
+            ]
+        ]);
+    }
 
-        return view('settings.settings');
+    public function store(Request $request)
+    {
+        $request->validate(self::RULES);
+
+        $data = [
+            'clientId' => $request->clientId,
+            'folderId' => $request->folderId,
+            'secret'   => Crypt::encryptString($request->secret),
+            'refreshToken' => $request->refreshToken
+        ];
+
+        $this->settings->set('GOOGLE_DRIVE_CONFIG', json_encode($data));
+
+        return redirect(route('index_settings'))->with('success', 'Settings saved successfully');
     }
 
 }
