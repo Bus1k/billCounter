@@ -30,5 +30,8 @@ Route::middleware('auth')->group(function(){
     Route::get('/bills/{bill}/edit', [\App\Http\Controllers\BillsController::class, 'edit'])->name('edit_bill');
 
     Route::get('/bills/{bill}/delete', [\App\Http\Controllers\BillsController::class, 'destroy'])->name('delete_bill');
+
+
+    Route::get('/settings', [\App\Http\Controllers\SettingsController::class, 'index'])->name('index_settings');
 });
 
