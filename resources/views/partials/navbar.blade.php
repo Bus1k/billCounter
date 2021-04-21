@@ -15,10 +15,13 @@
                         <a class="nav-link" href="{{ route('index_bill') }}">Bills</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('index_bill') }}">Categories</a>
+                        <a class="nav-link" href="{{ route('index_categories') }}">Categories</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('index_bill') }}">Statistics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('index_bill') }}">Groups</a>
                     </li>
                 </ul>
             @endauth

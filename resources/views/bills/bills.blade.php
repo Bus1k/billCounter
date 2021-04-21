@@ -1,10 +1,5 @@
 @extends('layouts.app')
 
-@section('head')
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script
-@endsection
-
 @section('content')
     <div class="container">
         <div class="row row-cols-1 row-cols-md-2 g-4 mb-5">

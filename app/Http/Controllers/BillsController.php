@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Bill;
 use App\Models\Category;
 use App\Repositories\BillRepository;
+use App\Repositories\CategoryRepository;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Helpers\MonthsHelper;
@@ -17,11 +18,13 @@ class BillsController extends Controller
     ];
 
     private BillRepository $repository;
+    private CategoryRepository $categoryRepository;
 
-    public function __construct(BillRepository $repository)
+    public function __construct(BillRepository $repository, CategoryRepository $categoryRepository)
     {
         $this->middleware('auth');
         $this->repository = $repository;
+        $this->categoryRepository = $categoryRepository;
     }
 
 
@@ -57,7 +60,7 @@ class BillsController extends Controller
     public function create()
     {
         return view('bills.create', [
-            'categories' => Category::all()
+            'categories' => $this->categoryRepository->all()
         ]);
     }
 
@@ -79,8 +82,6 @@ class BillsController extends Controller
             $request->amount,
             $filename,
         );
-
-
     }
 
 
@@ -88,7 +89,7 @@ class BillsController extends Controller
     {
         return view('bills.edit', [
             'bill' => $bill,
-            'categories' => Category::all()
+            'categories' => $this->categoryRepository->all()
         ]);
     }
 

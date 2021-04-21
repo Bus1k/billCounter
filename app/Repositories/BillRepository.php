@@ -15,7 +15,7 @@ class BillRepository
 
     public function all()
     {
-        return $this->billModel->get();
+        return $this->billModel->all();
     }
 
     public function allByMonth(int $month)

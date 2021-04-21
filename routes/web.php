@@ -20,6 +20,7 @@ Route::get('/', function () {
 Route::middleware('auth')->group(function(){
     Route::view('/dashboard', 'dashboard');
 
+    //--------------------------------------------------BILLS------------------------------------------------------------------------//
     Route::get('/bills', [\App\Http\Controllers\BillsController::class, 'index'])->name('index_bill');
     Route::post('/bills', [\App\Http\Controllers\BillsController::class, 'store'])->name('store_bill');
     Route::post('/bills/ajax', [\App\Http\Controllers\BillsController::class, 'ajax'])->name('ajax_bill');
@@ -31,8 +32,12 @@ Route::middleware('auth')->group(function(){
 
     Route::get('/bills/{bill}/delete', [\App\Http\Controllers\BillsController::class, 'destroy'])->name('delete_bill');
 
-
+    //--------------------------------------------------SETTINGS---------------------------------------------------------------------//
     Route::get('/settings', [\App\Http\Controllers\SettingsController::class, 'index'])->name('index_settings');
     Route::post('/settings', [\App\Http\Controllers\SettingsController::class, 'store'])->name('store_settings');
+
+    //--------------------------------------------------CATEGORIES------------------------------------------------------------------//
+    Route::get('/categories', [\App\Http\Controllers\CategoriesController::class, 'index'])->name('index_categories');
+
 });
 
