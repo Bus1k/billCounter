@@ -37,7 +37,8 @@ Route::middleware('auth')->group(function(){
     Route::post('/settings', [\App\Http\Controllers\SettingsController::class, 'store'])->name('store_settings');
 
     //--------------------------------------------------CATEGORIES------------------------------------------------------------------//
-    Route::get('/categories', [\App\Http\Controllers\CategoriesController::class, 'index'])->name('index_categories');
+    Route::get('/categories', [\App\Http\Controllers\CategoriesController::class, 'index'])->name('index_category');
+    Route::get('/categories/{category}', [\App\Http\Controllers\CategoriesController::class, 'destroy'])->name('delete_category');
 
 });
 

@@ -15,6 +15,7 @@
                         <th scope="col">#</th>
                         <th scope="col">Name</th>
                         <th scope="col">Description</th>
+                        <th scope="col">Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -24,6 +25,10 @@
                             <th scope="row">{{ $category->id }}</th>
                             <td>{{ $category->name }}</td>
                             <td>{{ $category->description }}</td>
+                            <td>
+                                <a href="#" class="btn btn-primary"><i class="far fa-edit"></i></a>
+                                <a id="delete_category" href="{{ route('delete_category', $category->id) }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                            </td>
                         </tr>
                     @endforeach
                     </tbody>
