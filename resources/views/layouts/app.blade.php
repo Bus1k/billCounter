@@ -39,5 +39,6 @@
     </div>
 
     @yield('script')
+    @yield('alertScript')
 </body>
 </html>

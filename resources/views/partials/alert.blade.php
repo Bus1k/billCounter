@@ -14,7 +14,7 @@
     </div>
 @endif
 
-@section('script')
+@section('alertScript')
     <script>
         $(document).ready(function() {
             if ($('.alert').length > 0) {

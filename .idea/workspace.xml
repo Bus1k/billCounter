@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ba77ca24-0f31-4f3e-bfb2-ba2d9f6d6b12" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BillsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BillsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/bills/bills.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/bills/bills.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/partials/alert.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/alert.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -236,7 +235,7 @@
       <workItem from="1618939320021" duration="66000" />
       <workItem from="1618939403211" duration="9813000" />
       <workItem from="1619019731106" duration="6049000" />
-      <workItem from="1619549388891" duration="2663000" />
+      <workItem from="1619549388891" duration="3983000" />
     </task>
     <task id="LOCAL-00001" summary="add bill migration model and controller">
       <created>1616618698818</created>
@@ -371,7 +370,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619028658663</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="add alerts on bill view and remove alert with animation">
+      <created>1619552878251</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1619552878251</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -398,6 +404,7 @@
     <MESSAGE value="settings route" />
     <MESSAGE value="git test" />
     <MESSAGE value="add categories view, repository, controller" />
-    <option name="LAST_COMMIT_MESSAGE" value="add categories view, repository, controller" />
+    <MESSAGE value="add alerts on bill view and remove alert with animation" />
+    <option name="LAST_COMMIT_MESSAGE" value="add alerts on bill view and remove alert with animation" />
   </component>
 </project>
