@@ -20,6 +20,7 @@
                 </div>
             </div>
         </div>
+        @include('partials.alert')
         <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
             <div class="btn-group mr-2" role="group" aria-label="Main panel">
                 <a href="{{ route('create_bill') }}" class="btn btn-primary">Add Bill</a>
@@ -32,7 +33,7 @@
             </div>
         </div>
 
-        <div class="row justify-content-center">
+        <div class="justify-content-center">
             <table class="table" id="billTable">
                 <thead>
                 <tr>
@@ -109,8 +110,6 @@
             $('#monthName').text(additional.monthName);
             $('#currentMonthQuantity').text(additional.currentMonthQuantity);
             $('#currentMonthSum').text(additional.currentMonthSum);
-
-            console.log(additional);
         }
 
         $('#month_select').click(function(){

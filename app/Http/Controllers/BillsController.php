@@ -113,14 +113,16 @@ class BillsController extends Controller
             $filename
         );
 
-        return redirect(route('index_bill'));
+        return redirect(route('index_bill'))
+            ->with('success', 'Bill updated successfully');
     }
 
 
     public function destroy(Bill $bill)
     {
         $this->repository->delete($bill);
-        return redirect(route('index_bill'));
+        return redirect(route('index_bill'))
+            ->with('success', 'Bill removed successfully');
     }
 
 

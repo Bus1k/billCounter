@@ -14,3 +14,16 @@
     </div>
 @endif
 
+@section('script')
+    <script>
+        $(document).ready(function() {
+            if ($('.alert').length > 0) {
+                setTimeout(function() {
+                    $('.alert').slideUp(300, function(){
+                        $(this).remove();
+                    });
+                }, 2000);
+            }
+        });
+    </script>
+@endsection
