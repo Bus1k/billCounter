@@ -85,7 +85,9 @@
 
 <script>
     $(document).ready(function() {
-        $('#billTable').DataTable();
+        $('#billTable').DataTable({
+            responsive: true,
+        });
 
         function fetch_data(table_type, date='')
         {
@@ -100,7 +102,8 @@
                 },
             }).done(function(response) {
                 $('#billTable').DataTable({
-                    data: response.data
+                    data: response.data,
+                    responsive: true,
                 });
                 changeStats(response.additional);
             });
@@ -115,7 +118,7 @@
         $('#month_select').click(function(){
             const date = $('#bill_date').val();
 
-            if(date != ''){
+            if(date !== ''){
                 $('#billTable').DataTable().destroy();
                 fetch_data('billTable', date);
             }

@@ -40,5 +40,11 @@ Route::middleware('auth')->group(function(){
     Route::get('/categories', [\App\Http\Controllers\CategoriesController::class, 'index'])->name('index_category');
     Route::get('/categories/{category}', [\App\Http\Controllers\CategoriesController::class, 'destroy'])->name('delete_category');
 
+    //--------------------------------------------------STATISTICS------------------------------------------------------------------//
+
+    //--------------------------------------------------GROUPS---------------------------------------------------------------------//
+    Route::get('/groups', [\App\Http\Controllers\GroupsController::class, 'index'])->name('index_groups');
+    Route::post('/groups', [\App\Http\Controllers\GroupsController::class, 'store'])->name('store_group');
+    Route::get('/groups/create', [\App\Http\Controllers\GroupsController::class, 'create'])->name('create_group');
 });
 

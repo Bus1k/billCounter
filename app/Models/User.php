@@ -45,4 +45,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Bill::class);
     }
+
+    public function groups()
+    {
+        return $this->hasManyThrough(Group::class, GroupsUsers::class, 'user_id', 'id', 'id', 'group_id');
+    }
 }

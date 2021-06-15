@@ -17,20 +17,20 @@ class BillsController extends Controller
         'photo'       => 'nullable|mimes:jpg,jpeg,png'
     ];
 
-    private BillRepository $repository;
+    private BillRepository $billRepository;
     private CategoryRepository $categoryRepository;
 
-    public function __construct(BillRepository $repository, CategoryRepository $categoryRepository)
+    public function __construct(BillRepository $billRepository, CategoryRepository $categoryRepository)
     {
         $this->middleware('auth');
-        $this->repository = $repository;
+        $this->billRepository = $billRepository;
         $this->categoryRepository = $categoryRepository;
     }
 
 
     public function index()
     {
-        $bills = $this->repository->allByMonth(now()->month);
+        $bills = $this->billRepository->allByMonth(now()->month);
 
         $currentMonthSum = 0;
         $currentMonthQuantity = 0;
@@ -76,12 +76,15 @@ class BillsController extends Controller
             $filename = $request->file('photo')->hashName();
         }
 
-        $this->repository->create(
+        $this->billRepository->create(
             $request->description,
             $request->category_id,
             $request->amount,
             $filename,
         );
+
+        return redirect(route('index_bill'))
+            ->with('success', 'Bill added successfully');
     }
 
 
@@ -105,7 +108,7 @@ class BillsController extends Controller
             $filename = $request->file('photo')->hashName();
         }
 
-        $this->repository->edit(
+        $this->billRepository->edit(
             $bill,
             $request->description,
             $request->category_id,
@@ -120,7 +123,7 @@ class BillsController extends Controller
 
     public function destroy(Bill $bill)
     {
-        $this->repository->delete($bill);
+        $this->billRepository->delete($bill);
         return redirect(route('index_bill'))
             ->with('success', 'Bill removed successfully');
     }
@@ -131,7 +134,7 @@ class BillsController extends Controller
         if($_POST['table_type'] === 'billTable'){
 
             $date = Carbon::create($_POST['selected_date']);
-            $bills = $this->repository->allByMonth($date->month);
+            $bills = $this->billRepository->allByMonth($date->month);
 
             $out = [
                 'data' => []

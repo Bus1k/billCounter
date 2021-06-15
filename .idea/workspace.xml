@@ -2,9 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ba77ca24-0f31-4f3e-bfb2-ba2d9f6d6b12" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/GroupsController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Group.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/GroupsUsers.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Repositories/GroupRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_06_14_094627_create_groups_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_06_14_153305_create_groups_users.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/groups/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/groups/groups.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CategoriesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CategoriesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/categories/categories.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/categories/categories.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BillsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BillsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/bills/bills.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/bills/bills.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/alert.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/alert.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/navbar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -193,17 +205,18 @@
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="javascript.nodejs.core.library.configured.version" value="12.19.0" />
     <property name="javascript.nodejs.core.library.typings.version" value="12.19.0" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/custom-affiliate-system-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Models" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\laragon\www\billcounter\app\Models" />
+      <recent name="C:\laragon\www\billcounter\app\Repositories" />
+      <recent name="C:\laragon\www\billcounter\resources\views\groups" />
       <recent name="C:\laragon\www\billcounter\public\storage" />
       <recent name="C:\laragon\www\billcounter" />
-      <recent name="C:\laragon\www\billcounter\public" />
-      <recent name="C:\laragon\www\billcounter\resources\views" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\laragon\www\billcounter\public\js" />
@@ -236,7 +249,12 @@
       <workItem from="1618939320021" duration="66000" />
       <workItem from="1618939403211" duration="9813000" />
       <workItem from="1619019731106" duration="6049000" />
-      <workItem from="1619549388891" duration="5353000" />
+      <workItem from="1619549388891" duration="5411000" />
+      <workItem from="1620666022447" duration="3360000" />
+      <workItem from="1621368584258" duration="31000" />
+      <workItem from="1621970662352" duration="1249000" />
+      <workItem from="1623663548544" duration="25890000" />
+      <workItem from="1623734985021" duration="4797000" />
     </task>
     <task id="LOCAL-00001" summary="add bill migration model and controller">
       <created>1616618698818</created>
@@ -385,7 +403,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619554303611</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="category remove">
+      <created>1619555692668</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1619555692668</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -414,6 +439,7 @@
     <MESSAGE value="add categories view, repository, controller" />
     <MESSAGE value="add alerts on bill view and remove alert with animation" />
     <MESSAGE value="fix for datepicker after alert" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix for datepicker after alert" />
+    <MESSAGE value="category remove" />
+    <option name="LAST_COMMIT_MESSAGE" value="category remove" />
   </component>
 </project>
