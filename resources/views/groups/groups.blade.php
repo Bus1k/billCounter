@@ -11,15 +11,24 @@
 
         @foreach ($groups as $group)
         <div class="card text-center mt-4">
-            <div class="card-header">
+            <div class="card-header" style="background-color: {{ $group->color }}">
                 {{ $group->name }}
             </div>
             <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <h5 class="card-title">{{ $group->description }}</h5>
+                <div class="card" style="width: 18rem;">
+                    <div class="card-header" style="background-color: {{ $group->color }}">
+                        Group Members <a href="#" class="btn btn-outline-light btn-sm ml-2"><i class="fas fa-plus"></i></a>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Busik</li>
+                        <li class="list-group-item">Ziomek</li>
+                        <li class="list-group-item">Kasztan</li>
+                    </ul>
+                </div>
             </div>
             <div class="card-footer text-muted">
-                2 days ago
+                Ostatnio dodany rachunek: 2 days ago
             </div>
         </div>
         @endforeach

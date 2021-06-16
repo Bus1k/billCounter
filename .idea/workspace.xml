@@ -2,22 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ba77ca24-0f31-4f3e-bfb2-ba2d9f6d6b12" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/GroupsController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Group.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/GroupsUsers.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Repositories/GroupRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_06_14_094627_create_groups_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_06_14_153305_create_groups_users.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/groups/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/groups/groups.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_06_15_195615_add_group_color_to_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_06_16_195053_add_groups_id_to_bills_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BillsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BillsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/GroupsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/GroupsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Bill.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Bill.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Group.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Group.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/BillRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/BillRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/GroupRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/GroupRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/bills/bills.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/bills/bills.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/alert.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/alert.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/bills/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/bills/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/groups/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/groups/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/groups/groups.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/groups/groups.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/partials/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/navbar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -254,7 +252,7 @@
       <workItem from="1621368584258" duration="31000" />
       <workItem from="1621970662352" duration="1249000" />
       <workItem from="1623663548544" duration="25890000" />
-      <workItem from="1623734985021" duration="4797000" />
+      <workItem from="1623734985021" duration="15357000" />
     </task>
     <task id="LOCAL-00001" summary="add bill migration model and controller">
       <created>1616618698818</created>
@@ -410,7 +408,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619555692668</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="working groups concept">
+      <created>1623786891886</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1623786891886</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -440,6 +445,7 @@
     <MESSAGE value="add alerts on bill view and remove alert with animation" />
     <MESSAGE value="fix for datepicker after alert" />
     <MESSAGE value="category remove" />
-    <option name="LAST_COMMIT_MESSAGE" value="category remove" />
+    <MESSAGE value="working groups concept" />
+    <option name="LAST_COMMIT_MESSAGE" value="working groups concept" />
   </component>
 </project>

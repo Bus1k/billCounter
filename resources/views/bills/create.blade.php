@@ -49,6 +49,22 @@
                             </div>
 
                             <div class="form-group row">
+                                <label for="group" class="col-md-4 col-form-label text-md-right">Group</label>
+
+                                <div class="col-md-6">
+                                    <select id="group_id"
+                                            type="text"
+                                            class="form-control"
+                                            name="group_id"
+                                            required>
+                                        @foreach ($groups as $group)
+                                            <option value="{{ $group->id }}">{{ $group->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
                                 <label for="amount" class="col-md-4 col-form-label text-md-right">Amount</label>
 
                                 <div class="col-md-6">

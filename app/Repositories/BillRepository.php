@@ -28,12 +28,13 @@ class BillRepository
         return $this->billModel->where('id', $id)->first();
     }
 
-    public function create(string $description, int $categoryId, float $amount, ?string $fileName = null)
+    public function create(string $description, int $categoryId, int $groupId, float $amount, ?string $fileName = null)
     {
         return $this->billModel->create([
             'user_id'     => Auth::id(),
             'description' => $description,
             'category_id' => $categoryId,
+            'group_id'    => $groupId,
             'amount'      => $amount,
             'photo_name'  => $fileName,
         ]);

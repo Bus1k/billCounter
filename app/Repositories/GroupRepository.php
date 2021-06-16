@@ -4,6 +4,7 @@ namespace App\Repositories;
 use App\Models\Group;
 use App\Models\GroupsUsers;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class GroupRepository
@@ -17,12 +18,13 @@ class GroupRepository
         $this->groupUsersModel = $groupUsersModel;
     }
 
-    public function create(string $name, string $description)
+    public function create(string $name, string $description, string $color)
     {
         return $this->groupModel->create([
             'name'        => $name,
             'description' => $description,
-            'token'       => $this->generateToken()
+            'token'       => $this->generateToken(),
+            'color'       => $color
         ]);
     }
 
@@ -44,9 +46,18 @@ class GroupRepository
         $this->groupUsersModel->insert($data);
     }
 
+    //TODO to do poprawy fajnie by bylo ogarnac sql
     public function getGroupsByUserId(int $userId)
     {
         return User::find($userId)->groups;
+
+//        $test = DB::select('SELECT g.id, g.name, g.description, g.token, g.color
+//                                    FROM groups g
+//                                    JOIN groups_users gu ON g.id = gu.group_id
+//                                    WHERE gu.user_id = ?', [$userId]);
+//
+//        var_dump($test);
+//        die;
     }
 
     private function generateToken($length = 16)

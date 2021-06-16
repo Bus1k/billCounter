@@ -18,10 +18,10 @@
                         <a class="nav-link" href="{{ route('index_category') }}">Categories</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('index_bill') }}">Statistics</a>
+                        <a class="nav-link" href="{{ route('index_groups') }}">Groups</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('index_groups') }}">Groups</a>
+                        <a class="nav-link" href="{{ route('index_bill') }}">Statistics</a>
                     </li>
                 </ul>
             @endauth

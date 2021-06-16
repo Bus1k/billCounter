@@ -18,7 +18,8 @@ class Group extends Model
     protected $fillable = [
         'name',
         'description',
-        'token'
+        'token',
+        'color'
     ];
 
     public function users()

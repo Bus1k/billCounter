@@ -19,6 +19,7 @@ class Bill extends Model
         'user_id',
         'description',
         'category_id',
+        'group_id',
         'amount',
         'photo_name',
     ];
@@ -31,5 +32,10 @@ class Bill extends Model
     public function category()
     {
         return $this->hasOne(Category::class, 'id', 'category_id');
+    }
+
+    public function group()
+    {
+        return $this->hasOne(Group::class, 'id', 'group_id');
     }
 }

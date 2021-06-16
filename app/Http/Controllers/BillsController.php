@@ -5,9 +5,11 @@ use App\Models\Bill;
 use App\Models\Category;
 use App\Repositories\BillRepository;
 use App\Repositories\CategoryRepository;
+use App\Repositories\GroupRepository;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Helpers\MonthsHelper;
+use Illuminate\Support\Facades\Auth;
 
 class BillsController extends Controller
 {
@@ -19,12 +21,14 @@ class BillsController extends Controller
 
     private BillRepository $billRepository;
     private CategoryRepository $categoryRepository;
+    private GroupRepository $groupRepository;
 
-    public function __construct(BillRepository $billRepository, CategoryRepository $categoryRepository)
+    public function __construct(BillRepository $billRepository, CategoryRepository $categoryRepository, GroupRepository $groupRepository)
     {
         $this->middleware('auth');
         $this->billRepository = $billRepository;
         $this->categoryRepository = $categoryRepository;
+        $this->groupRepository = $groupRepository;
     }
 
 
@@ -60,7 +64,8 @@ class BillsController extends Controller
     public function create()
     {
         return view('bills.create', [
-            'categories' => $this->categoryRepository->all()
+            'categories' => $this->categoryRepository->all(),
+            'groups'     => $this->groupRepository->getGroupsByUserId(Auth::id())
         ]);
     }
 
@@ -79,6 +84,7 @@ class BillsController extends Controller
         $this->billRepository->create(
             $request->description,
             $request->category_id,
+            $request->group_id,
             $request->amount,
             $filename,
         );
@@ -159,6 +165,7 @@ class BillsController extends Controller
                 $out['data'][] = [
                     $bill['id'],
                     $bill->user->name,
+                    $bill->group->name,
                     $bill->category->name,
                     $bill['description'],
                     $bill['amount'],

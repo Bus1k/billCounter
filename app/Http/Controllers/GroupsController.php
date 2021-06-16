@@ -13,6 +13,7 @@ class GroupsController extends Controller
     private const RULES = [
         'name'        => 'required|string|min:3|max:50',
         'description' => 'required|string|min:3|max:50',
+        'color'       => 'required'
     ];
 
     private GroupRepository $groupRepository;
@@ -24,6 +25,7 @@ class GroupsController extends Controller
 
     public function index()
     {
+        ddd($this->groupRepository->getGroupsByUserId(Auth::id()));
         return view('groups.groups', [
             'groups' => $this->groupRepository->getGroupsByUserId(Auth::id())
         ]);
@@ -42,7 +44,8 @@ class GroupsController extends Controller
 
         $group = $this->groupRepository->create(
             $request->name,
-            $request->description
+            $request->description,
+            $request->color
         );
 
         $userIds[] = Auth::id();
