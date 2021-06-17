@@ -46,11 +46,19 @@ class GroupRepository
         $this->groupUsersModel->insert($data);
     }
 
-    //TODO to do poprawy fajnie by bylo ogarnac sql
+    //TODO chujowo tymczasowo
     public function getGroupsByUserId(int $userId)
     {
-        return User::find($userId)->groups;
+        $groups =  User::find($userId)->groups;
 
+        foreach($groups as &$group)
+        {
+            $group['users'] = DB::table('groups_users')
+                ->join('users', 'groups_users.user_id', '=', 'users.id' )
+                ->where('group_id', $group->id)->pluck('name')->toArray();
+        }
+
+        return $groups;
 //        $test = DB::select('SELECT g.id, g.name, g.description, g.token, g.color
 //                                    FROM groups g
 //                                    JOIN groups_users gu ON g.id = gu.group_id
@@ -58,6 +66,14 @@ class GroupRepository
 //
 //        var_dump($test);
 //        die;
+    }
+
+    public function getUsersByGroupId(int $groupId)
+    {
+        return DB::table('groups_users')
+                    ->join('users', 'groups_users.user_id', '=', 'users.id' )
+                    ->where('groups_users.group_id', $groupId)
+                    ->get();
     }
 
     private function generateToken($length = 16)

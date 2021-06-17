@@ -10,10 +10,10 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Create Group</div>
+                    <div class="card-header">Edit Group Members</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('store_group') }}">
+                        <form method="POST" action="{{ route('update_group', $group->id) }}">
                             @csrf
 
                             <div class="form-group row">
@@ -25,7 +25,7 @@
                                            type="text"
                                            class="form-control @error('name') is-invalid @enderror"
                                            name="name"
-                                           value="{{ old('name') }}"
+                                           value="{{ $group->name }}"
                                            required
                                            autofocus>
 
@@ -46,7 +46,7 @@
                                            type="text"
                                            class="form-control @error('description') is-invalid @enderror"
                                            name="description"
-                                           value="{{ old('description') }}"
+                                           value="{{ $group->description }}"
                                            required
                                            autofocus>
 
@@ -68,7 +68,9 @@
                                             placeholder="Select users assigned to the group"
                                             multiple="multiple">
                                         @foreach ($users as $user)
-                                            <option value="{{ $user->name }}">{{ $user->name }}</option>
+                                            <option value="{{ $user->name }}" @if(in_array($user->name, $members, true)) selected @endif>
+                                                {{ $user->name }}
+                                            </option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -79,7 +81,7 @@
                                        class="col-md-4 col-form-label text-md-right">Color</label>
 
                                 <div class="col-md-6">
-                                    <input type="color" id="color" name="color" value="#e66465">
+                                    <input type="color" id="color" name="color" value="{{ $group->color }}">
                                 </div>
                             </div>
 

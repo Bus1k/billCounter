@@ -12,18 +12,18 @@
         @foreach ($groups as $group)
         <div class="card text-center mt-4">
             <div class="card-header" style="background-color: {{ $group->color }}">
-                {{ $group->name }}
+                {{ $group->name }} <a href="{{ route('edit_group', $group->id) }}" class="float-right"><i class="fas fa-edit"></i></a>
             </div>
             <div class="card-body">
                 <h5 class="card-title">{{ $group->description }}</h5>
                 <div class="card" style="width: 18rem;">
                     <div class="card-header" style="background-color: {{ $group->color }}">
-                        Group Members <a href="#" class="btn btn-outline-light btn-sm ml-2"><i class="fas fa-plus"></i></a>
+                        Group Members
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Busik</li>
-                        <li class="list-group-item">Ziomek</li>
-                        <li class="list-group-item">Kasztan</li>
+                        @foreach ($group->users as $user)
+                        <li class="list-group-item">{{ $user }}</li>
+                        @endforeach
                     </ul>
                 </div>
             </div>

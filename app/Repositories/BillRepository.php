@@ -2,6 +2,7 @@
 namespace App\Repositories;
 
 use App\Models\Bill;
+use App\Models\GroupsUsers;
 use Illuminate\Support\Facades\Auth;
 
 class BillRepository
@@ -20,7 +21,10 @@ class BillRepository
 
     public function allByMonth(int $month)
     {
-        return $this->billModel->whereMonth('created_at', $month)->get();
+        return Bill::join('groups_users', 'bills.group_id', '=', 'groups_users.group_id')
+                    ->where('groups_users.user_id', Auth::id())
+                    ->whereMonth('created_at', $month)
+                    ->get();
     }
 
     public function get(int $id)

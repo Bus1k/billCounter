@@ -25,7 +25,6 @@ class GroupsController extends Controller
 
     public function index()
     {
-        ddd($this->groupRepository->getGroupsByUserId(Auth::id()));
         return view('groups.groups', [
             'groups' => $this->groupRepository->getGroupsByUserId(Auth::id())
         ]);
@@ -58,38 +57,22 @@ class GroupsController extends Controller
             ->with('success', 'Group created successfully');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function edit(Group $group)
     {
-        //
+        $groupUsers = $this->groupRepository->getUsersByGroupId($group->id)->pluck('name')->toArray();
+
+        return view('groups.edit', [
+            'group' => $group,
+            'users' => User::where('id', '!=', Auth::id())->get(['name']),
+            'members' => $groupUsers
+        ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function update(Request $request, Group $group)
     {
-        //
-    }
+        $request->validate(self::RULES);
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
+        ddd($request);
     }
 
     /**
